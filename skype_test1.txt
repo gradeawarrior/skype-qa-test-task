@@ -1,0 +1,32 @@
+## Test Different start times
+0 http://www.ning.com GET
+500 http://www.google.com GET
+500 http://curl.haxx.se GET
+1000 http://www.skype.com
+## Method Tests
+300 http://www.yahoo.com GET
+300 http://www.yahoo.com POST
+#300 http://www.yahoo.com PUT
+300 http://www.yahoo.com DELETE
+## Response Code verification
+355 http://www.apple.com GET
+500 http://www.ning.com/manage GET code 404
+0 http://peterandjen.com GET code 302
+0 http://peterandjen.com GET code 200
+## IP Address
+355 http://17.149.160.49 GET
+## IP + Port numbers
+355 http://17.149.160.49:80 GET code 200
+355 http://17.149.160.49:8080 GET
+## Test if http is default protocol
+351 www.apple.com GET
+351 17.149.160.49 GET
+## Negative tests
+100 http://foobar.example.com GET
+100 ftp://foobar.example.com GET
+100 foo GET
+100 foo POST
+100 foo DELETE
+## Domain/Subdomain tests
+2000 http://kagemusha.net GET
+1000 http://www.kagemusha.com GET
